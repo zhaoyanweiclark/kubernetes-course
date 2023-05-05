@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-example
+  namespace: practice
+
+spec:
+  containers:
+    - name: busytime
+      image: busytime:latest
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: "username"
+          value: "admin"
+        - name: "password"
+          value: "password"
+      resources:
+        limits:
+          cpu: "2"
+          memory: "1Gi"
+        requests:
+          cpu: "1"
+          memory: "512Mi"
